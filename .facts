@@ -1,0 +1,32 @@
+
+# skill
+
+## behavior
+- label: grill-with-facts turns plan-grilling conversations into durable .facts entries instead of chat-only notes
+  command: grep -q 'durable outcomes' SKILL.md && grep -q 'facts add' SKILL.md
+  tags: [implemented]
+
+## companion-skills
+- label: grill-with-facts explains when to use facts-refine, facts-implement, and facts-discover without replacing those lifecycle skills
+  command: grep -q 'facts-refine' SKILL.md && grep -q 'facts-implement' SKILL.md && grep -q 'facts-discover' SKILL.md
+  tags: [implemented]
+
+# repository
+
+## docs
+- label: the repository README tells users what the skill does, when to use it, and how it relates to the facts lifecycle
+  command: grep -q 'grill-with-facts' README.md && grep -q 'facts lifecycle' README.md && grep -q 'when to use it' README.md
+  tags: [implemented]
+- label: README section headings use lowercase style
+  command: ! grep -qE '^## [A-Z]' README.md
+  tags: [implemented]
+
+## examples
+- label: the repository includes a compact example showing a user answer becoming spec-tagged and draft-tagged facts
+  command: grep -q '@spec' examples/grilling-session.md && grep -q '@draft' examples/grilling-session.md
+  tags: [implemented]
+
+## scope
+- label: the skill repo has no package-manager dependency or generated build step
+  command: test ! -f package.json && test ! -f bun.lock && test ! -f pnpm-lock.yaml && test ! -f package-lock.json
+  tags: [implemented]
