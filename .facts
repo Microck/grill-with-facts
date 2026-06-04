@@ -20,6 +20,12 @@
 - label: README section headings use lowercase style
   command: ! grep -qE '^## [A-Z]' README.md
   tags: [implemented]
+- label: README links to the upstream facts project
+  command: grep -q 'https://github.com/av/facts' README.md
+  tags: [implemented]
+- label: README body copy uses lowercase phrasing where proper nouns do not require uppercase
+  command: grep -q '^it is built around' README.md && grep -q '^- a plan' README.md && grep -q '^copy .*SKILL.md' README.md && grep -q '^for Codex,' README.md
+  tags: [implemented]
 
 ## examples
 - label: the repository includes a compact example showing a user answer becoming spec-tagged and draft-tagged facts
